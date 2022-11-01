@@ -1,20 +1,20 @@
 {
-    "name": "sagapay/sagapay",
-    "description": "Official Payment module for www.sagapay.net",
-    "type": "library",
-    "require": {
-        "guzzlehttp/guzzle": "^7.5"
-    },
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Sagapay\\Sagapay\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Saga Pay"
-        }
-    ],
-    "minimum-stability": "stable"
+  "name": "sagapay/sagapay",
+  "description": "Official Payment module for www.sagapay.net",
+  "type": "library",
+  "require": {
+    "guzzlehttp/guzzle": "^6.0"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Sagapay\\Sagapay\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Saga Pay"
+    }
+  ],
+  "minimum-stability": "stable"
 }
