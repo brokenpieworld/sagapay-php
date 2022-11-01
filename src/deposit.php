@@ -10,7 +10,7 @@ class Deposit
     public $api_endpoint = 'https://app.sagapay.net/api/v2';
 
     /// Deposit custom tokens
-    public function depostToken($amount, $coin_code, $network, $smart_contract_address, $ipn_url, $public_key, $txn_no=null, $customer_email=null)
+    public function depositToken($amount, $coin_code, $network, $smart_contract_address, $ipn_url, $public_key, $txn_no=null, $customer_email=null)
     {
         $client = new Client();
         $response = $client->post($this->api_endpoint.'/token-deposit', [
@@ -32,7 +32,7 @@ class Deposit
 
 
      /// Deposit listed coins
-     public function depost($amount, $coin_code, $ipn_url, $public_key, $txn_no=null, $customer_email=null)
+     public function deposit($amount, $coin_code, $ipn_url, $public_key, $txn_no=null, $customer_email=null)
      {
          $client = new Client();
          $response = $client->post($this->api_endpoint.'/token-deposit', [
@@ -45,7 +45,7 @@ class Deposit
                  'customer_email'   => $customer_email,
              ],
          ]);
- 
+
          $body = $response->getBody();
          return json_decode($body);
      }
