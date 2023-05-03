@@ -1,0 +1,16 @@
+{
+    "name": "brokenpieworld/sagapay",
+    "description": "A Composer Library for Crypto currency payment gateway www.sagapay.net. Saga Pay is a free crypto currency payment gateway dedicated to the web3 world.",
+    "type": "library",
+    "license": "MIT",
+    "version": "2.2.1",
+    "require": {
+        "php": ">=7.4.0",
+        "guzzlehttp/guzzle": "^7.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sagapay\\": "src/"
+        }
+    }
+}
