@@ -33,17 +33,17 @@ $amount = 1.0;
 $udf = 'Order #123';
 
 // Deposit funds
-$response = $sagapayAPI->deposit($tokenID, $amount, $udf);
+$response = $sagapayAPI->deposit($tokenID, $amount, $ipn_url, $udf);
 
 // Withdraw funds
 $withdrawalAddress = '1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2';
-$response = $sagapayAPI->withdraw($tokenID, $amount, $withdrawalAddress, $udf);
+$response = $sagapayAPI->withdraw($tokenID, $amount, $withdrawalAddress, $ipn_url, $udf);
 
 // Check balance
 $response = $sagapayAPI->checkBalance($tokenID);
 
 // Validate IPN
-if ($client->validateIPN($_POST, 'your_secret_key')) {
+if ($client->validateIPN($_POST, 'your_api_secret_key')) {
     // IPN is valid
 } else {
     // IPN is invalid
