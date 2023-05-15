@@ -28,7 +28,6 @@ class SagapayAPI
 
     public function deposit($token_id, $amount, $ipn_url, $udf = null)
     {
-        echo 'working here<br/>';
         try {
             $response = $this->client->post('/api/v2/deposit', [
                 'json' => [
@@ -39,16 +38,13 @@ class SagapayAPI
                     'udf' => $udf,
                 ],
             ]);
-var_dump($response);
-            echo 'working here too<br/>';
-            return json_decode($response->getBody(), true);
+            return json_decode($response->getBody(), false);
         } catch (Exception $e) {
 
            var_dump($e->getMessage());
-            return json_decode($e->getResponse()->getBody(), true);
+            return json_decode($e->getResponse()->getBody(), false);
         }
     }
-
     public function withdraw($token_id, $amount, $withdrawal_address, $ipn_url, $udf = null)
     {
         try {
@@ -64,9 +60,9 @@ var_dump($response);
                 ],
             ]);
 
-            return json_decode($response->getBody(), true);
+            return json_decode($response->getBody(), false);
         } catch (GuzzleException $e) {
-            return json_decode($e->getResponse()->getBody(), true);
+            return json_decode($e->getResponse()->getBody(), false);
         }
     }
 
@@ -80,9 +76,9 @@ var_dump($response);
                 ],
             ]);
 
-            return json_decode($response->getBody(), true);
+            return json_decode($response->getBody(), false);
         } catch (GuzzleException $e) {
-            return json_decode($e->getResponse()->getBody(), true);
+            return json_decode($e->getResponse()->getBody(), false);
         }
     }
 
@@ -91,7 +87,6 @@ var_dump($response);
         $payload = json_encode($request->getContent());
         $receivedSignature = $request->headers->get('x-sagapay-ipn');
         $hmac = hash_hmac('sha256', $payload, $secretKey);
-
         return $hmac === $receivedSignature;
     }
 }
